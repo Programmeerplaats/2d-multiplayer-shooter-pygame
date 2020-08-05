@@ -6,19 +6,22 @@ pygame.init()
 # Screen aanmaken
 screen = pygame.display.set_mode((700, 500))
 
+# Titel game
+pygame.display.set_caption("2D MultiPlayer Shooter")
+
 # Achtergrond afbeelding laden
-bg = pygame.image.load('war-background.jpg')
+background = pygame.image.load('images/war-background.jpg')
 
 # Game loop
 running = True
 while running:
 
-    # RGB background
-    screen.fill((255, 255, 255))
-
     # blit method aanroepen om achtergrond afbeelding op scherm te krijgen
-    screen.blit(bg, (0, 0))
+    screen.blit(background, (0, 0))
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
+    # Update het scherm
+    pygame.display.update()
