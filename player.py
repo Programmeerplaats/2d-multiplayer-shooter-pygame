@@ -7,5 +7,5 @@ class Player:
         self.x = x
         self.y = y
 
-    def draw(self, screen, player):
-        screen.blit(player, (self.x, self.y))
+    def draw(self, screen, playerimage):
+        screen.blit(playerimage, (self.x, self.y))

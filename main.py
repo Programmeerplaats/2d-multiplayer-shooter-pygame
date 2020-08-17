@@ -24,7 +24,7 @@ p2 = Player(10, 10)
 running = True
 while running:
 
-    # blit method aanroepen om achtergrond afbeelding op scherm te krijgen
+    # blit() method aanroepen om achtergrond afbeelding op scherm te krijgen
     screen.blit(background, (0, 0))
 
     for event in pygame.event.get():
