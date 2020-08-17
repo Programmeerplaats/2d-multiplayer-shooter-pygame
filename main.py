@@ -17,11 +17,8 @@ player1Image = pygame.image.load('images/player1.png')
 player2Image = pygame.image.load('images/player2.png')
 
 # Objecten
-p1 = Player()
-p2 = Player()
-
-p1.set_start_position(626, 400)
-p2.set_start_position(10, 10)
+p1 = Player(626, 400)
+p2 = Player(10, 10)
 
 # Game loop
 running = True
@@ -34,8 +31,10 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
+    # De status van alle toetsenbord knoppen ophalen
     keys = pygame.key.get_pressed()
 
+    # Checken welke toetsenbord knoppen worden gebruikt en players verticaal laten bewegen
     if keys[pygame.K_UP]:
         p1.y -= 2
     if keys[pygame.K_DOWN]:

@@ -3,10 +3,7 @@ class Player:
     x = 0
     y = 0
 
-    def __init__(self):
-        print('Als je een object aanmaakt, zie je dit op je scherm!')
-
-    def set_start_position(self, x, y):
+    def __init__(self, x, y):
         self.x = x
         self.y = y
 
