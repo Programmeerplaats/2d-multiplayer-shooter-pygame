@@ -44,6 +44,10 @@ while running:
     if keys[pygame.K_s]:
         p2.y += 2
 
+    # Grenzen scherm checken en players niet door grenzen heen laten gaan
+    p1.boundaries(p1.y)
+    p2.boundaries(p2.y)
+
     # Objecten op scherm plaatsen
     p1.draw(screen, player1Image)
     p2.draw(screen, player2Image)
