@@ -23,7 +23,7 @@ bulletPlayer2Image = pygame.image.load('images/bullet-player2.png')
 p1 = Player(626, 400)
 p2 = Player(10, 10)
 b1 = Bullet(p1.x)
-b2 = Bullet(p2.x + 40)
+b2 = Bullet(p2.x)
 
 # Game loop
 running = True
@@ -78,7 +78,7 @@ while running:
     if b1.x <= 0:
         b1.x = p1.x
         b1.state = "ready"
-    if b2.x >= 700:
+    if b2.x >= 676:
         b2.x = p2.x
         b2.state = "ready"
 
