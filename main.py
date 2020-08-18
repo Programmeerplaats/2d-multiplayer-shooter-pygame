@@ -67,12 +67,12 @@ while running:
     p1.draw(screen, player1Image)
     p2.draw(screen, player2Image)
 
-    # Als state van bullet "fire" is, dan schieten
+    # Als state van bullet "fire" is, dan bullet op scherm laten vertonen en schieten
     if b1.state == "fire":
-        b1.shoot(screen, bulletPlayer1Image, b1.y)
+        b1.draw(screen, bulletPlayer1Image, b1.y)
         b1.x -= 3
     if b2.state == "fire":
-        b2.shoot(screen, bulletPlayer2Image, b2.y)
+        b2.draw(screen, bulletPlayer2Image, b2.y)
         b2.x += 3
     # Bullets resetten als zijkant van scherm wordt geraakt, zodat player daarna opnieuw kan schieten
     if b1.x <= 0:
