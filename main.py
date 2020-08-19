@@ -82,5 +82,21 @@ while running:
         b2.x = p2.x
         b2.state = "ready"
 
+    # Rechthoekige coördinaten van objecten opslaan
+    player1Rect = pygame.Rect(p1.x, p1.y, 64, 64)
+    player2Rect = pygame.Rect(p2.x, p2.y, 64, 64)
+    bullet1Rect = pygame.Rect(b1.x, b1.y, 24, 24)
+    bullet2Rect = pygame.Rect(b2.x, b2.y, 24, 24)
+
+    # Botsing checken tussen kogel en player, bij botsing kogel weer resetten
+    if bullet1Rect.colliderect(player2Rect):
+        print("Botsing tussen kogel van player 1 en player 2")
+        b1.x = p1.x
+        b1.state = "ready"
+    if bullet2Rect.colliderect(player1Rect):
+        print("Botsing tussen kogel van player 2 en player 1")
+        b2.x = p2.x
+        b2.state = "ready"
+
     # Update het scherm
     pygame.display.update()
