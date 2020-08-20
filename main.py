@@ -34,6 +34,24 @@ p2 = Player(10, 10)
 b1 = Bullet(p1.x)
 b2 = Bullet(p2.x)
 
+# Score variables voor beide players en font aanmaken
+scorePlayer1 = 0
+scorePlayer2 = 0
+fontScore = pygame.font.Font('freesansbold.ttf', 40)
+
+# Winnaar font
+fontWinner = pygame.font.Font('freesansbold.ttf', 64)
+
+# Score van beide players renderen en blit() method aanroepen om score om op scherm te krijgen
+def display_score_players(x, y):
+    score = fontScore.render(str(scorePlayer2) + " - " + str(scorePlayer1), True, (0, 0, 0))
+    screen.blit(score, (x, y))
+
+# Winnaar renderen en op scherm krijgen
+def display_winner(x, y, winnerplayer):
+    winner = fontScore.render(winnerplayer + " heeft gewonnen!", True, (0, 0, 0))
+    screen.blit(winner, (x, y))
+
 # Game loop
 running = True
 while running:
@@ -101,13 +119,26 @@ while running:
 
     # Botsing checken tussen kogel en player, bij botsing kogel weer resetten
     if bullet1Rect.colliderect(player2Rect):
-        print("Botsing tussen kogel van player 1 en player 2")
+        scorePlayer1 += 1
         b1.x = p1.x
         b1.state = "ready"
     if bullet2Rect.colliderect(player1Rect):
-        print("Botsing tussen kogel van player 2 en player 1")
+        scorePlayer2 += 1
         b2.x = p2.x
         b2.state = "ready"
+
+    # Score op scherm weergeven en updaten
+    display_score_players(300, 450)
+
+    # Juiste winnaar op scherm weergeven en game beëindigen
+    if scorePlayer1 == 3:
+        b1.state = "stop"
+        b2.state = "stop"
+        display_winner(120, 200, "Player 1")
+    if scorePlayer2 == 3:
+        b1.state = "stop"
+        b2.state = "stop"
+        display_winner(120, 200, "Player 2")
 
     # Update het scherm
     pygame.display.update()
