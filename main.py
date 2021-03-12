@@ -56,7 +56,7 @@ def display_winner(x, y, winnerplayer):
 running = True
 while running:
 
-    # blit() method aanroepen om achtergrond afbeelding op scherm te krijgen
+    # blit() method aanroepen om achtergrondafbeelding op scherm te krijgen
     screen.blit(background, (0, 0))
 
     for event in pygame.event.get():
